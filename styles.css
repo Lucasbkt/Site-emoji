@@ -1,0 +1,1170 @@
+/* ========== VARIABLES ========== */
+
+:root {
+  /* Couleurs */
+  --noir: #0a0a0a;
+  --noir-clair: #1a1a1a;
+  --or: #d4af37;
+  --or-clair: rgba(212, 175, 55, 0.5);
+  --texte: #f0f0f0;
+  --texte-secondaire: #b0b0b0;
+  /* Espacements */
+  --espace-xl: 6rem;
+  --espace-l: 4rem;
+  --espace-m: 2rem;
+  --espace-s: 1rem;
+  /* Bordures */
+  --border-radius: 8px;
+  --border: 1px solid rgba(212, 175, 55, 0.1);
+}
+
+/* ========== BASE ========== */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Raleway", sans-serif;
+  background-color: var(--noir);
+  color: var(--texte);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+h1,
+h2,
+h3 {
+  font-family: "Playfair Display", serif;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+/* ========== LAYOUT ========== */
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 var(--espace-m);
+}
+
+/* ========== NAVIGATION ========== */
+
+.luxe-nav {
+  padding: var(--espace-m) 0;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 100;
+  background-color: rgba(10, 10, 10, 0.95);
+  backdrop-filter: blur(10px);
+}
+
+.luxe-nav nav {
+  display: flex;
+  justify-content: center;
+  gap: var(--espace-l);
+}
+
+.luxe-nav a {
+  color: var(--texte-secondaire);
+  text-decoration: none;
+  font-size: 1.1rem;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+  position: relative;
+  padding: var(--espace-s) 0;
+}
+
+.luxe-nav a:hover,
+.luxe-nav a.active {
+  color: var(--or);
+}
+
+.luxe-nav a.active::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: var(--or);
+  animation: underline 0.3s ease-out;
+}
+
+@keyframes underline {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+/* ========== HERO ========== */
+
+.luxe-hero {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding-top: 80px;
+}
+
+.luxe-hero h1 {
+  font-size: 4.5rem;
+  margin-bottom: var(--espace-s);
+  color: var(--or);
+}
+
+.luxe-hero p {
+  font-size: 1.2rem;
+  max-width: 600px;
+  margin: 0 auto var(--espace-l);
+  color: var(--texte-secondaire);
+}
+
+.luxe-line {
+  width: 100px;
+  height: 1px;
+  background: var(--or-clair);
+  margin: 0 auto;
+}
+
+/* ========== GALERIE EMOJIS ========== */
+
+.luxe-gallery {
+  padding: var(--espace-xl) 0;
+}
+
+.emotion-section {
+  margin-bottom: var(--espace-xl);
+}
+
+.emotion-section h2 {
+  font-size: 2.8rem;
+  text-align: center;
+  margin-bottom: var(--espace-l);
+  position: relative;
+}
+
+.emotion-section h2::after {
+  content: "";
+  position: absolute;
+  bottom: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 1px;
+  background: var(--or-clair);
+}
+
+.emoji-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: var(--espace-m);
+  margin-top: var(--espace-l);
+  align-items: stretch;
+  /* Pour que toutes les cartes aient la même hauteur */
+}
+
+.emoji-card {
+  background: var(--noir-clair);
+  border-radius: var(--border-radius);
+  padding: var(--espace-l);
+  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+  border: var(--border);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 400px;
+  /* Hauteur fixe pour toutes les cartes */
+}
+
+.emoji-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  border-color: var(--or-clair);
+}
+
+.emoji-card p {
+  margin-top: var(--espace-m);
+  color: var(--texte-secondaire);
+  font-size: 0.95rem;
+  letter-spacing: 1px;
+}
+
+/* ========== STYLES EMOJIS ========== */
+
+/* Conteneurs principaux */
+
+.emoji-3d,
+.emoji-2d,
+.emoji-retro,
+.emoji-container,
+.emoji {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  width: 100% !important;
+  height: 100% !important;
+  position: relative !important;
+  margin: 0 !important;
+}
+
+/* Réinitialisation des emojis */
+
+.face,
+.emoji-colere,
+.emoji-peurBEYA,
+.heart {
+  position: relative !important;
+  top: auto !important;
+  left: auto !important;
+  right: auto !important;
+  bottom: auto !important;
+  transform: none !important;
+  margin: 0 !important;
+}
+
+/* --- JOIE --- */
+
+/* Emoji joie 3D - Shekinah  */
+
+/* === EMOJI === */
+
+.emoji {
+  width: 200px !important;
+  height: 200px !important;
+  margin: 0 auto !important;
+}
+
+/* === VISAGE (détails peau) === */
+
+.face {
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(circle at 30% 30%, #ffdb58, #ffc800),
+    linear-gradient(to bottom, transparent, rgba(255, 255, 255, 0.3));
+  border-radius: 50%;
+  position: relative !important;
+  top: auto !important;
+  left: auto !important;
+  margin: 0 auto !important;
+  box-shadow: inset 0 -10px 15px rgba(0, 0, 0, 0.1),
+    0 5px 15px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  transition: all 0.5s cubic-bezier(0.2, 0.9, 0.3, 1.3);
+}
+
+/* Texture peau */
+
+.face::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(
+      circle at 70% 30%,
+      rgba(255, 255, 255, 0.8),
+      transparent 60%
+    ),
+    repeating-linear-gradient(
+      45deg,
+      rgba(0, 0, 0, 0.03) 0px,
+      rgba(0, 0, 0, 0.03) 1px,
+      transparent 1px,
+      transparent 5px
+    );
+}
+
+/* === YEUX (détails réalistes) === */
+
+.eyesSHEKINAH {
+  display: flex;
+  justify-content: space-between;
+  width: 100px;
+  position: absolute;
+  top: 70px;
+  left: 50px;
+}
+
+.eyeSHEKINAH {
+  width: 25px;
+  height: 35px;
+  background: #222;
+  border-radius: 50%;
+  position: relative;
+  overflow: hidden;
+  animation: blink 3s infinite;
+}
+
+/* Reflet des yeux */
+
+.eyeSHEKINAH::after {
+  content: "";
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  width: 8px;
+  height: 8px;
+  background: white;
+  border-radius: 50%;
+  filter: blur(0.5px);
+}
+
+@keyframes blink {
+  0%,
+  96%,
+  100% {
+    height: 35px;
+  }
+  98% {
+    height: 5px;
+  }
+}
+
+/* === BOUCHE (intérieur détaillé) === */
+
+.mouthSHEKINAH {
+  width: 50px;
+  height: 20px;
+  background: linear-gradient(to bottom, #ff6b6b, #e84343),
+    radial-gradient(circle at 50% 0%, rgba(0, 0, 0, 0.2), transparent 70%);
+  border-radius: 0 0 25px 25px;
+  position: absolute;
+  top: 120px;
+  left: 75px;
+  box-shadow: inset 0 -5px 8px rgba(0, 0, 0, 0.3), 0 3px 6px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+/* === ANIMATIONS AU SURVOL === */
+
+.emoji:hover .face {
+  transform: translateY(10px);
+}
+
+.emoji:hover .mouthSHEKINAH {
+  height: 30px;
+  border-radius: 0 0 35px 35px;
+}
+
+/* Rougissement */
+
+.blush {
+  position: absolute;
+  width: 30px;
+  height: 15px;
+  background: rgba(255, 105, 105, 0.4);
+  border-radius: 50%;
+  top: 90px;
+  filter: blur(5px);
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+.blush.left {
+  left: 30px;
+}
+
+.blush.right {
+  right: 30px;
+}
+
+.emoji:hover .blush {
+  opacity: 1;
+  transform: scale(1.3);
+}
+
+/* --- TRISTESSE --- */
+
+/* Emoji triste 2D - Divine-Félicité */
+
+.face {
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(#ffff00, #ffc800);
+  border-radius: 50%;
+  position: relative;
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 2);
+  margin: 0 auto;
+}
+
+/* Yeux de l'émoji */
+
+.eyesANKWES {
+  position: absolute;
+  width: 100%;
+  top: 30%;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+}
+
+.eyeANKWES {
+  width: 35px;
+  height: 50px;
+  background: #222;
+  border-radius: 50%;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Reflet blanc */
+
+.eyeANKWES::before {
+  content: "";
+  position: absolute;
+  width: 15px;
+  height: 20px;
+  background: #ffffff;
+  border-radius: 40%;
+  top: 5px;
+  left: 5px;
+}
+
+/* Reflet noir en secondaire */
+
+.eyeANKWES::after {
+  position: absolute;
+  width: 10px;
+  height: 15px;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 40%;
+  top: 15px;
+  right: 5px;
+}
+
+.tear {
+  width: 15px;
+  height: 25px;
+  background: #00bfff;
+  border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+  position: absolute;
+  top: 110px;
+  left: 52px;
+  animation: drop 1.5s infinite;
+  opacity: 0.8;
+}
+
+@keyframes drop {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  70% {
+    transform: translateY(20px);
+    opacity: 0.5;
+  }
+  100% {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+}
+
+.mouthANKWES {
+  width: 80px;
+  height: 30px;
+  border-bottom: 5px solid #333;
+  border-radius: 0 0 40px 40px;
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%) rotate(180deg);
+}
+
+/* Pluie Retro */
+
+.emoji-retro.rain {
+  background: #4776e6;
+  clip-path: polygon(
+    10% 10%,
+    15% 30%,
+    10% 50%,
+    15% 70%,
+    10% 90%,
+    30% 80%,
+    50% 90%,
+    70% 80%,
+    90% 90%,
+    85% 70%,
+    90% 50%,
+    85% 30%,
+    90% 10%,
+    70% 20%,
+    50% 10%,
+    30% 20%
+  );
+}
+
+/* --- COLÈRE --- */
+
+/* Emoji Colere 2D - Lucas */
+
+.emoji-container {
+  width: 20vw;
+  height: 20vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  place-items: center;
+}
+
+.emoji-colere {
+  width: 200px;
+  height: 200px;
+  background: linear-gradient(to bottom, #e11c1c 10%, #ffc800 60%);
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: inset 0 -10px 15px rgba(0, 0, 0, 0.1),
+    0 5px 15px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  transition: all 0.5s cubic-bezier(0.2, 0.9, 0.3, 1.3);
+  position: relative !important;
+  margin: 0 auto !important;
+}
+
+/* Soucils */
+
+.eyebrowsesLUCAS {
+  position: absolute;
+  width: -1%;
+  top: 38%;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: space-between;
+}
+
+.eyebrowsesLUCAS::before,
+.eyebrowsesLUCAS::after {
+  content: "";
+  width: 55px;
+  height: 12px;
+  background-color: #333;
+  border-radius: 50%;
+  display: block;
+}
+
+.eyebrowsesLUCAS::before {
+  transform: rotate(20deg);
+}
+
+.eyebrowsesLUCAS::after {
+  transform: rotate(-20deg);
+}
+
+/* Yeux de l'émoji */
+
+.eyesLUCAS {
+  position: absolute;
+  width: 100%;
+  top: 40%;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.eyeLUCAS {
+  width: 35px;
+  height: 50px;
+  background: #222;
+  border-radius: 50%;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Reflet blanc */
+
+.eyeLUCAS::before {
+  content: "";
+  position: absolute;
+  width: 15px;
+  height: 20px;
+  background: #ffffff;
+  border-radius: 40%;
+  top: 5px;
+  left: 5px;
+}
+
+/* Reflet noir en secondaire */
+
+.eyeLUCAS::after {
+  content: "";
+  position: absolute;
+  width: 10px;
+  height: 15px;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 40%;
+  top: 15px;
+  right: 5px;
+}
+
+/* Bouche  */
+
+.mouthLUCAS {
+  width: 70px;
+  height: 90px;
+  border-bottom: 5px solid #333;
+  border-radius: 0 0 40px 40px;
+  position: absolute;
+  bottom: 10%;
+  left: 50%;
+  transform: translate(-50%) rotate(180deg);
+}
+
+/* --- PEUR --- */
+
+/* Emoji Peur 2D - Lucas */
+
+.emoji-container {
+  width: 20vw;
+  height: 20vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.emoji-peurBEYA {
+  width: 200px;
+  height: 200px;
+  background: linear-gradient(to bottom, #51aff1 10%, #ffc800 70%);
+  border-radius: 50%;
+  position: relative !important;
+  margin: 0 auto !important;
+  cursor: pointer;
+  box-shadow: inset 0 -10px 15px rgba(0, 0, 0, 0.1),
+    0 5px 15px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  transition: all 0.5s cubic-bezier(0.2, 0.9, 0.3, 1.3);
+}
+
+/* Soucils */
+
+.eyebrowsesBEYA {
+  position: absolute;
+  width: 13%;
+  top: 25%;
+  left: 50%;
+  transform: translate(-50%);
+  display: flex;
+  justify-content: space-between;
+}
+
+.eyebrowsesBEYA::before,
+.eyebrowsesBEYA::after {
+  content: "";
+  width: 55px;
+  height: 0px;
+  background-color: #333;
+  border-bottom: 12px solid #333;
+  border-radius: 0 0 40px 40px;
+  display: block;
+}
+
+.eyebrowsesBEYA::before {
+  transform: rotate(-20deg);
+}
+
+.eyebrowsesBEYA::after {
+  transform: rotate(20deg);
+}
+
+/* Yeux de l'émoji */
+
+.eyesBEYA {
+  position: absolute;
+  width: 100%;
+  top: 40%;
+  left: 0%;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+}
+
+.eyeBEYA {
+  width: 35px;
+  height: 50px;
+  background: #222;
+  border-radius: 50%;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Reflet blanc */
+
+.eyeBEYA::before {
+  content: "";
+  position: absolute;
+  width: 15px;
+  height: 20px;
+  background: #ffffff;
+  border-radius: 40%;
+  top: 5px;
+  left: 5px;
+}
+
+/* Reflet noir en secondaire */
+
+.eyeBEYA::after {
+  content: "";
+  position: absolute;
+  width: 10px;
+  height: 20px;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 40%;
+  top: 15px;
+  right: 5px;
+}
+
+/* Bouche  */
+
+.mouthBEYA {
+  width: 90px;
+  height: 90px;
+  border-bottom: 34px solid #333;
+  border-radius: 0 0 40px 40px;
+  position: absolute;
+  bottom: 5%;
+  left: 50%;
+  transform: translate(-50%) rotate(180deg);
+}
+
+/* Sueur */
+
+.sweatBEYA {
+  position: absolute;
+  width: 2%;
+  height: 10%;
+  left: 42%;
+  background: rgba(123, 200, 255, 0.7);
+  border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+  top: 50%;
+  animation: sweatDrop 2s infinite;
+  /* Reflet de lumière */
+  box-shadow: inset -2px -2px 4px rgba(255, 255, 255, 0.877),
+    inset 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Animation de la goutte */
+
+@keyframes sweatDrop {
+  0%,
+  100% {
+    transform: translateY(0);
+    opacity: 0.8;
+  }
+  50% {
+    transform: translateY(5px);
+    opacity: 1;
+  }
+}
+
+/* --- AMOUR --- */
+
+/* Emoji Coeur - Divine-Felicite */
+
+.heart {
+  width: 100px;
+  height: 100px;
+  background: red;
+  margin: 100px auto;
+  margin: 0 auto !important;
+  transform: rotate(-45deg) !important;
+  position: relative !important;
+}
+
+.heart::before,
+.heart::after {
+  content: "";
+  width: 100px;
+  height: 100px;
+  background: linear-gradient(45deg, red, #ff006a);
+  border-radius: 50%;
+  position: absolute;
+}
+
+.heart::before {
+  top: -50px;
+  left: 0;
+}
+
+.heart::after {
+  left: 50px;
+  top: 0;
+}
+
+/* --- SPOUNTATCH --- */
+
+/* Emoji InesKhra */
+
+.emoji-container {
+  width: 20vw;
+  height: 20vw;
+  display: grid;
+  place-items: center;
+}
+
+.emoji-spountatch {
+  width: 200px;
+  height: 200px;
+  background: linear-gradient(to bottom, #e11c1c 50%, #ffc800 100%);
+  margin: 0;
+  border-radius: 50%;
+  position: absolute;
+  cursor: pointer;
+  box-shadow: inset 0 -10px 15px rgba(0, 0, 0, 0.1),
+    0 5px 15px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  transition: all 0.5s cubic-bezier(0.2, 0.9, 0.3, 1.3);
+}
+
+/* Soucils */
+
+.eyebrowses {
+  position: absolute;
+  width: -1%;
+  top: 38%;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: space-between;
+}
+
+.eyebrowses::before,
+.eyebrowses::after {
+  content: "";
+  width: 55px;
+  height: 12px;
+  background-color: #333;
+  border-radius: 50%;
+  display: block;
+}
+
+.eyebrowses::before {
+  transform: rotate(20deg);
+}
+
+.eyebrowses::after {
+  transform: rotate(-20deg);
+}
+
+/* Yeux de l'émoji */
+
+.eyes {
+  position: absolute;
+  width: 100%;
+  top: 37%;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+}
+
+.eye {
+  width: 35px;
+  height: 50px;
+  background: #222;
+  border-radius: 50%;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Reflet blanc */
+
+.eye::before {
+  content: "";
+  position: absolute;
+  width: 15px;
+  height: 20px;
+  background: #ffffff;
+  border-radius: 40%;
+  top: 5px;
+  left: 5px;
+}
+
+/* Reflet noir en secondaire */
+
+.eye::after {
+  content: "";
+  position: absolute;
+  width: 10px;
+  height: 15px;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 40%;
+  top: 15px;
+  right: 5px;
+}
+
+/* Bouche  */
+
+.mouth {
+  width: 139px;
+  height: 50px;
+  border: 2px solid #880000;
+  top: 65%;
+  border-radius: 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  background-color: #322222;
+  position: absolute;
+  bottom: 142px;
+  left: 50%;
+  transform: translate(-50%) rotate(180deg);
+}
+
+.mouth::after {
+  content: "#SALEKHRA!!";
+  position: absolute;
+  color: #ffffff;
+  font-family: Arial, sans serif;
+  font-weight: bold;
+  font-size: 14px;
+  text-align: left;
+  line-height: 30px;
+  top: 25%;
+  left: 50%;
+  transform: translate(-50%) rotate(180deg);
+}
+
+/* ========== FOOTER ========== */
+
+.luxe-footer {
+  text-align: center;
+  padding: var(--espace-l) 0;
+  border-top: var(--border);
+  margin-top: var(--espace-xl);
+}
+
+/* ========== ANIMATIONS ========== */
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ========== RESPONSIVE ========== */
+
+@media (max-width: 992px) {
+  .luxe-hero h1 {
+    font-size: 3.5rem;
+  }
+  .luxe-nav nav {
+    gap: var(--espace-m);
+  }
+}
+
+@media (max-width: 768px) {
+  .luxe-nav {
+    padding: var(--espace-s) 0;
+  }
+  .luxe-nav nav {
+    gap: var(--espace-s);
+  }
+  .emoji-grid {
+    grid-template-columns: 1fr;
+  }
+  .emoji-card {
+    padding: var(--espace-m);
+  }
+  .emoji-container {
+    width: 50vw;
+    height: 50vw;
+  }
+  .emoji-grid {
+    grid-template-columns: 1fr;
+    /* 1 colonne sur mobile */
+  }
+  .eyesLUCAS {
+    top: 40%;
+    /* Ajustement fin */
+  }
+  .mouthLUCAS {
+    bottom: 10%;
+  }
+  .eyesBEYA {
+    top: 40%;
+    /* Ajustement fin */
+  }
+  .mouthBEYA {
+    bottom: 5%;
+  }
+  .eyebrowsesBEYA {
+    position: absolute;
+    width: 13%;
+    top: 25%;
+    left: 50%;
+    transform: translate(-50%);
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+/* Badges */
+
+.luxe-badge {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: var(--or);
+  color: var(--noir);
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-size: 0.7rem;
+  font-weight: bold;
+}
+
+/* Layout */
+
+.luxe-header {
+  padding: 2rem 4rem;
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+}
+
+nav a {
+  color: var(--texte-secondaire);
+  text-decoration: none;
+  font-size: 1.1rem;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+nav a.active,
+nav a:hover {
+  color: var(--or);
+}
+
+nav a.active::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: var(--or);
+}
+
+/* Main */
+
+.luxe-main {
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.hero-content h1 {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+  color: var(--or);
+}
+
+.subtitle {
+  font-size: 1.2rem;
+  letter-spacing: 3px;
+  margin-bottom: 2rem;
+  color: var(--texte-secondaire);
+}
+
+.luxe-line {
+  width: 100px;
+  height: 1px;
+  background: var(--or-clair);
+  margin: 2rem auto;
+}
+
+/* Team */
+
+.luxe-team {
+  max-width: 1000px;
+  margin: 5rem auto;
+  padding: 0 2rem;
+  text-align: center;
+}
+
+.luxe-team h1 {
+  font-size: 3rem;
+  margin-bottom: 5rem;
+}
+
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 4rem;
+}
+
+.team-card {
+  background: var(--noir-clair);
+  padding: 3rem 2rem;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.team-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.avatar {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  margin: 0 auto 1.5rem;
+  background: var(--noir);
+  border: 2px solid var(--or);
+}
+
+.avatar-1 {
+  background: conic-gradient(var(--or), var(--noir), var(--or));
+}
+
+.avatar-2 {
+  background: radial-gradient(circle at 30% 40%, var(--or), var(--noir) 70%);
+}
+
+S
+/* Footer */
+
+.luxe-footer {
+  text-align: center;
+  padding: 3rem 0;
+  margin-top: 5rem;
+  border-top: 1px solid rgba(212, 175, 55, 0.2);
+  color: var(--texte-secondaire);
+  font-size: 0.9rem;
+}
+
+/* Accents */
+
+.luxe-accent {
+  color: var(--or);
+  margin: 0 10px;
+}
+
+/* Transitions */
+
+.emoji-3d,
+.emoji-2d,
+.emoji-retro {
+  transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
